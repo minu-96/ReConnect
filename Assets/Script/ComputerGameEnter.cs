@@ -14,7 +14,7 @@ public class ComputerGameEnter : MonoBehaviour
         // 플레이어가 범위 안에 있고 F키를 눌렀을 때
         if (playerInRange && Input.GetKeyDown(KeyCode.F))
         {
-            Debug.Log("F키가 눌렸습니다!");
+            
             ToggleUI();
             return;
         }
@@ -39,11 +39,11 @@ public class ComputerGameEnter : MonoBehaviour
 
     void OpenUI()
     {
-        Debug.Log("OpenUI 호출됨");
+        
 
         if (uiPanel != null)
         {
-            Debug.Log("UI Panel 활성화 시도");
+            
             uiPanel.SetActive(true);
             uiOpen = true;
 
