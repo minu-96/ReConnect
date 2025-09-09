@@ -540,8 +540,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -9, y: 8}
+  m_SizeDelta: {x: 800, y: 575}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &412125256
 Canvas:
@@ -636,8 +636,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -9.000018, y: 8.000008}
+  m_SizeDelta: {x: 800, y: 575}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &439968267
 Canvas:
@@ -790,7 +790,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &479385209
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1118,63 +1118,63 @@ MonoBehaviour:
   - target: {fileID: 412125258}
     levelTextures:
     - {fileID: 0}
-    - {fileID: 2800000, guid: d9e41a209fda80d4db164f1f581758f8, type: 3}
-    - {fileID: 2800000, guid: 9ee38bc616334ef46bea79089f2f4dc3, type: 3}
-    - {fileID: 2800000, guid: 5825b0b53a9662a4b86a6e262965511b, type: 3}
+    - {fileID: 2800000, guid: 8f1851f0d69c542f5bb9ac5bc172521c, type: 3}
+    - {fileID: 2800000, guid: ff9a3b2569862472e9037cf1acb95965, type: 3}
+    - {fileID: 2800000, guid: 496e8e2d3e04e4945bfc2d018771541c, type: 3}
   - target: {fileID: 1539407857}
     levelTextures:
     - {fileID: 0}
-    - {fileID: 2800000, guid: be2670e79fbc7664193f05ac50168ce6, type: 3}
-    - {fileID: 2800000, guid: 9fc08d6a354166c4f86a241e19576c2d, type: 3}
-    - {fileID: 2800000, guid: 159af02115d50e8428c783ebc4c97577, type: 3}
-    - {fileID: 2800000, guid: c2ab811256855d3489c6cd42df6d6689, type: 3}
-    - {fileID: 2800000, guid: 7e158d5679ed36843895721b984a0ac5, type: 3}
+    - {fileID: 2800000, guid: 00888131be86c41ecabda82d586a21f6, type: 3}
+    - {fileID: 2800000, guid: dbaf6dd93763e4924839b207eca49ab7, type: 3}
+    - {fileID: 2800000, guid: c961bd8dc6d574981934e1155c2f1c98, type: 3}
+    - {fileID: 2800000, guid: c50fcc84c67d7410a9db3c6a5838f78c, type: 3}
+    - {fileID: 2800000, guid: a4f0bd274eda54218b045c74b2c97ee1, type: 3}
   - target: {fileID: 439968269}
     levelTextures:
     - {fileID: 0}
-    - {fileID: 2800000, guid: bd4bf44a1cd7a92419f61cfc2acac443, type: 3}
-    - {fileID: 2800000, guid: c444280bd84a4d542a0f43b7bac22fec, type: 3}
-    - {fileID: 2800000, guid: a39636123983b0744b322d9b441cad9b, type: 3}
-    - {fileID: 2800000, guid: 44a8f3fd536ad33498e8a35483657c6c, type: 3}
-    - {fileID: 2800000, guid: acf8e5b0ae517f44b801ac23555908a1, type: 3}
+    - {fileID: 2800000, guid: 3b431490b355745dab5a705f14c4912c, type: 3}
+    - {fileID: 2800000, guid: b10b3fc76f36e4a208a389fb2ee11f91, type: 3}
+    - {fileID: 2800000, guid: f29b13c0ce0d44ecca5b93b3f2b69df8, type: 3}
+    - {fileID: 2800000, guid: cbc7451d3784f449f875115801c2b96e, type: 3}
+    - {fileID: 2800000, guid: 34c40d1dd00e04df4911a25813f41356, type: 3}
   - target: {fileID: 1408132842}
     levelTextures:
     - {fileID: 0}
-    - {fileID: 2800000, guid: e6e373b0b3c62974aac2c67c675c763e, type: 3}
-    - {fileID: 2800000, guid: 118c86ea3979dd0459d302df08bb2673, type: 3}
-    - {fileID: 2800000, guid: bb181b84cd611104aa333381132a0052, type: 3}
-    - {fileID: 2800000, guid: 5f7a7b6d27d8fa8448f71055cb7a4c3b, type: 3}
-    - {fileID: 2800000, guid: 943245224574e0e49ba8aef8bc90031c, type: 3}
+    - {fileID: 2800000, guid: cfbb8b33356a64a4ca2999eda1adf8fe, type: 3}
+    - {fileID: 2800000, guid: e72bbb9340f8e456ba565609556e1285, type: 3}
+    - {fileID: 2800000, guid: c5994587c24634c7abca0219a20ab00c, type: 3}
+    - {fileID: 2800000, guid: c974f19a7eed84e6d98958d12177266e, type: 3}
+    - {fileID: 2800000, guid: 672f7ac59aadd43ccb18740567439a5b, type: 3}
   - target: {fileID: 2066159281}
     levelTextures:
     - {fileID: 0}
-    - {fileID: 2800000, guid: 7afa623fd1d49a94cb025824252349c8, type: 3}
-    - {fileID: 2800000, guid: f3c00e6e4937f8341a76c91b33aac19d, type: 3}
-    - {fileID: 2800000, guid: ebaacb835f5e49b469fe344e0d6f3433, type: 3}
+    - {fileID: 2800000, guid: 23650dcb2a4ae449bbf403caa4183267, type: 3}
+    - {fileID: 2800000, guid: eb813a9ed5dfd4be7ba7a8bca1c38953, type: 3}
+    - {fileID: 2800000, guid: 2478652419aa4475884e6ecf2860eedf, type: 3}
   - target: {fileID: 1761937288}
     levelTextures:
     - {fileID: 0}
-    - {fileID: 2800000, guid: 876104d88c7453941827910c6d1ca43c, type: 3}
-    - {fileID: 2800000, guid: 4eab159dec75a2d439de043892db0f3f, type: 3}
-    - {fileID: 2800000, guid: d6dd105cff0c7e24e8da4051110e880c, type: 3}
-    - {fileID: 2800000, guid: 7ca46aa25947f7d42ac5fb87d6bdc5af, type: 3}
-    - {fileID: 2800000, guid: 92b86dbe515994f42831d00ced18ce56, type: 3}
+    - {fileID: 2800000, guid: c5d135b9348334640b659ff81f5ef722, type: 3}
+    - {fileID: 2800000, guid: 1861728fae67448359cbdc3c83569c12, type: 3}
+    - {fileID: 2800000, guid: 7784ed592dde44822bd154dccb634c56, type: 3}
+    - {fileID: 2800000, guid: ffb333055eb504f35a255b697053ea7e, type: 3}
+    - {fileID: 2800000, guid: 92146085bf2544f2b96b75c1e8a93b1b, type: 3}
   - target: {fileID: 1033797638}
     levelTextures:
     - {fileID: 0}
-    - {fileID: 2800000, guid: b8826219ccb5974489e504b8ad628b8f, type: 3}
-    - {fileID: 2800000, guid: 8cb95c877fc99e940bfb510d45f93670, type: 3}
-    - {fileID: 2800000, guid: d9610fb6293f8334b8aa2427375d2579, type: 3}
-    - {fileID: 2800000, guid: 9ce15bc6905a4e948a6830287d769573, type: 3}
-    - {fileID: 2800000, guid: 17a4c3ac3f2adf049a71e299c45b4bd5, type: 3}
+    - {fileID: 2800000, guid: e9fd720da66d3459682176e9e3ef3fe0, type: 3}
+    - {fileID: 2800000, guid: 12f6eaa1dc8fd4a1cb2ae9c369c3bdf6, type: 3}
+    - {fileID: 2800000, guid: 832dbbb0d75d6446986613350eda57ba, type: 3}
+    - {fileID: 2800000, guid: dc5d2ba3fa8bc4ee98bc1004f2081924, type: 3}
+    - {fileID: 2800000, guid: 366989da115344b2a9337f7a7786d96d, type: 3}
   - target: {fileID: 676333090}
     levelTextures:
     - {fileID: 0}
-    - {fileID: 2800000, guid: 47f40703209e9a3449598e707a29f9d8, type: 3}
-    - {fileID: 2800000, guid: 8b7bf6eb488e85e43ae51c5842f0eed6, type: 3}
-    - {fileID: 2800000, guid: af5335bdc89e9344a8b243459942e456, type: 3}
-    - {fileID: 2800000, guid: 9ae817a9361f0b44bba835c27c46f417, type: 3}
-    - {fileID: 2800000, guid: 54faca166f4d05b42a86fd59c752870a, type: 3}
+    - {fileID: 2800000, guid: d4c26befa0762452888b565e590d7d3d, type: 3}
+    - {fileID: 2800000, guid: a9f5b4612dc784fc5b96be8d95687787, type: 3}
+    - {fileID: 2800000, guid: d28620db14d2447f39e668f179c4e9f8, type: 3}
+    - {fileID: 2800000, guid: 0012d1361a78e4bf4a1b4b5e7157c88c, type: 3}
+    - {fileID: 2800000, guid: 9f59401d14d0243e786874d974926084, type: 3}
 --- !u!4 &512857143
 Transform:
   m_ObjectHideFlags: 0
@@ -1317,7 +1317,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: bbf62bc43f9f87d4d8637452b0dbaf04, type: 3}
+  m_Texture: {fileID: 2800000, guid: d34db7e4454a440e3bf8f21166c335c0, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1654,8 +1654,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -9.000018, y: 8.000008}
+  m_SizeDelta: {x: 800, y: 575}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &700349993
 GameObject:
@@ -1674,7 +1674,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &700349994
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3399,8 +3399,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -9.000018, y: 8.000008}
+  m_SizeDelta: {x: 800, y: 575}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1033797636
 Canvas:
@@ -3978,8 +3978,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -9.000018, y: 8.000008}
+  m_SizeDelta: {x: 800, y: 575}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1408132840
 Canvas:
@@ -4328,8 +4328,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -9.000018, y: 8.000008}
+  m_SizeDelta: {x: 800, y: 575}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1539407855
 Canvas:
@@ -4809,8 +4809,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -9.00002, y: 8.000008}
+  m_SizeDelta: {x: 800, y: 575}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1761937286
 Canvas:
@@ -5434,8 +5434,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -9.000018, y: 8.000008}
+  m_SizeDelta: {x: 800, y: 575}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2066159279
 Canvas:
