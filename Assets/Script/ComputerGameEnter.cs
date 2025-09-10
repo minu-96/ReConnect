@@ -4,22 +4,22 @@ public class ComputerGameEnter : MonoBehaviour
 {
     [Header("Interaction Settings")]
     public string interactionText = "Press F to interact";
-    public GameObject uiPanel; // ¿­¸± UI ÆÐ³Î
-    public GameObject uiPanel1; // ¿­¸± UI ÆÐ³Î
+    public GameObject uiPanel; // ï¿½ï¿½ï¿½ï¿½ UI ï¿½Ð³ï¿½
+    public GameObject uiPanel1; // ï¿½ï¿½ï¿½ï¿½ UI ï¿½Ð³ï¿½
 
     private bool playerInRange = false;
     private bool uiOpen = false;
 
     void Update()
     {
-        // ÇÃ·¹ÀÌ¾î°¡ ¹üÀ§ ¾È¿¡ ÀÖ°í FÅ°¸¦ ´­·¶À» ¶§
+        // ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½È¿ï¿½ ï¿½Ö°ï¿½ FÅ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         if (playerInRange && Input.GetKeyDown(KeyCode.F))
         {
             
             ToggleUI();
             return;
         }
-        // UI°¡ ¿­·ÁÀÖÀ» ¶§ ESC³ª FÅ°·Î ´Ý±â
+        // UIï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ESCï¿½ï¿½ FÅ°ï¿½ï¿½ ï¿½Ý±ï¿½
         if (uiOpen && (Input.GetKeyDown(KeyCode.Escape) || uiOpen && Input.GetKeyDown(KeyCode.F)))
         {
             CloseUI();
@@ -48,28 +48,28 @@ public class ComputerGameEnter : MonoBehaviour
             uiPanel.SetActive(true);
             uiOpen = true;
 
-            // InteractionPrompt ¼û±â±â
+            // InteractionPrompt ï¿½ï¿½ï¿½ï¿½ï¿½
             InteractionUI.Instance?.HideInteractionPrompt();
 
-            // ¸¶¿ì½º Ä¿¼­ º¸ÀÌ°Ô ÇÏ°í Àá±Ý ÇØÁ¦
+            // ï¿½ï¿½ï¿½ì½º Ä¿ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            //Cursor.visible = true;
 
-            // ÇÃ·¹ÀÌ¾î ¿òÁ÷ÀÓ ºñÈ°¼ºÈ­
+            // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
             MonoBehaviour playerController = FindFirstObjectByType<CameraMove>();
             if (playerController != null)
             {
                 playerController.enabled = false;
-                Debug.Log("ÇÃ·¹ÀÌ¾î ÀÌµ¿ ºñÈ°¼ºÈ­µÊ");
+                Debug.Log("ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½È°ï¿½ï¿½È­ï¿½ï¿½");
             }
             else
             {
-                Debug.LogWarning("CameraMove ½ºÅ©¸³Æ®¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù!");
+                Debug.LogWarning("CameraMove ï¿½ï¿½Å©ï¿½ï¿½Æ®ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½!");
             }
         }
         else
         {
-            Debug.LogError("UI PanelÀÌ nullÀÔ´Ï´Ù!");
+            Debug.LogError("UI Panelï¿½ï¿½ nullï¿½Ô´Ï´ï¿½!");
         }
 
         if (uiPanel1 != null)
@@ -78,28 +78,28 @@ public class ComputerGameEnter : MonoBehaviour
             uiPanel1.SetActive(true);
             uiOpen = true;
 
-            // InteractionPrompt ¼û±â±â
+            // InteractionPrompt ï¿½ï¿½ï¿½ï¿½ï¿½
             InteractionUI.Instance?.HideInteractionPrompt();
 
-            // ¸¶¿ì½º Ä¿¼­ º¸ÀÌ°Ô ÇÏ°í Àá±Ý ÇØÁ¦
+            // ï¿½ï¿½ï¿½ì½º Ä¿ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            //Cursor.visible = true;
 
-            // ÇÃ·¹ÀÌ¾î ¿òÁ÷ÀÓ ºñÈ°¼ºÈ­
+            // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­
             MonoBehaviour playerController = FindFirstObjectByType<CameraMove>();
             if (playerController != null)
             {
                 playerController.enabled = false;
-                Debug.Log("ÇÃ·¹ÀÌ¾î ÀÌµ¿ ºñÈ°¼ºÈ­µÊ");
+                Debug.Log("ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½È°ï¿½ï¿½È­ï¿½ï¿½");
             }
             else
             {
-                Debug.LogWarning("CameraMove ½ºÅ©¸³Æ®¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù!");
+                Debug.LogWarning("CameraMove ï¿½ï¿½Å©ï¿½ï¿½Æ®ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½!");
             }
         }
         else
         {
-            Debug.LogError("UI PanelÀÌ nullÀÔ´Ï´Ù!");
+            Debug.LogError("UI Panelï¿½ï¿½ nullï¿½Ô´Ï´ï¿½!");
         }
     }
 
@@ -110,22 +110,22 @@ public class ComputerGameEnter : MonoBehaviour
             uiPanel.SetActive(false);
             uiOpen = false;
 
-            // ÇÃ·¹ÀÌ¾î°¡ ¾ÆÁ÷ ¹üÀ§ ¾È¿¡ ÀÖ´Ù¸é InteractionPrompt ´Ù½Ã Ç¥½Ã
+            // ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È¿ï¿½ ï¿½Ö´Ù¸ï¿½ InteractionPrompt ï¿½Ù½ï¿½ Ç¥ï¿½ï¿½
             if (playerInRange)
             {
                 InteractionUI.Instance?.ShowInteractionPrompt(interactionText);
             }
 
-            // ¸¶¿ì½º Ä¿¼­ ´Ù½Ã Àá±×±â
+            // ï¿½ï¿½ï¿½ì½º Ä¿ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½×±ï¿½
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
-            // ÇÃ·¹ÀÌ¾î ¿òÁ÷ÀÓ ´Ù½Ã È°¼ºÈ­
+            // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ È°ï¿½ï¿½È­
             MonoBehaviour playerController = FindFirstObjectByType<CameraMove>();
             if (playerController != null)
             {
                 playerController.enabled = true;
-                Debug.Log("ÇÃ·¹ÀÌ¾î ÀÌµ¿ È°¼ºÈ­µÊ");
+                Debug.Log("ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½Ìµï¿½ È°ï¿½ï¿½È­ï¿½ï¿½");
             }
         }
 
@@ -134,22 +134,22 @@ public class ComputerGameEnter : MonoBehaviour
             uiPanel1.SetActive(false);
             uiOpen = false;
 
-            // ÇÃ·¹ÀÌ¾î°¡ ¾ÆÁ÷ ¹üÀ§ ¾È¿¡ ÀÖ´Ù¸é InteractionPrompt ´Ù½Ã Ç¥½Ã
+            // ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È¿ï¿½ ï¿½Ö´Ù¸ï¿½ InteractionPrompt ï¿½Ù½ï¿½ Ç¥ï¿½ï¿½
             if (playerInRange)
             {
                 InteractionUI.Instance?.ShowInteractionPrompt(interactionText);
             }
 
-            // ¸¶¿ì½º Ä¿¼­ ´Ù½Ã Àá±×±â
+            // ï¿½ï¿½ï¿½ì½º Ä¿ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½×±ï¿½
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
-            // ÇÃ·¹ÀÌ¾î ¿òÁ÷ÀÓ ´Ù½Ã È°¼ºÈ­
+            // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ È°ï¿½ï¿½È­
             MonoBehaviour playerController = FindFirstObjectByType<CameraMove>();
             if (playerController != null)
             {
                 playerController.enabled = true;
-                Debug.Log("ÇÃ·¹ÀÌ¾î ÀÌµ¿ È°¼ºÈ­µÊ");
+                Debug.Log("ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½Ìµï¿½ È°ï¿½ï¿½È­ï¿½ï¿½");
             }
         }
     }
@@ -160,7 +160,7 @@ public class ComputerGameEnter : MonoBehaviour
         {
             playerInRange = true;
 
-            // »óÈ£ÀÛ¿ë UI Ç¥½Ã
+            // ï¿½ï¿½È£ï¿½Û¿ï¿½ UI Ç¥ï¿½ï¿½
             InteractionUI.Instance?.ShowInteractionPrompt(interactionText);
         }
     }
@@ -171,10 +171,10 @@ public class ComputerGameEnter : MonoBehaviour
         {
             playerInRange = false;
 
-            // »óÈ£ÀÛ¿ë UI ¼û±â±â
+            // ï¿½ï¿½È£ï¿½Û¿ï¿½ UI ï¿½ï¿½ï¿½ï¿½ï¿½
             InteractionUI.Instance?.HideInteractionPrompt();
 
-            // UI°¡ ¿­·ÁÀÖ´Ù¸é ´Ý±â
+            // UIï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´Ù¸ï¿½ ï¿½Ý±ï¿½
             if (uiOpen)
             {
                 CloseUI();

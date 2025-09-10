@@ -16,16 +16,16 @@ public class CameraMove : MonoBehaviour
 
     void Start()
     {
-        // CharacterController ÄÄÆ÷³ÍÆ® °¡Á®¿À±â
+        // CharacterController ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         characterController = GetComponent<CharacterController>();
 
-        // Ä«¸Þ¶ó°¡ ¼³Á¤µÇÁö ¾Ê¾Ò´Ù¸é Main Camera Ã£±â
+        // Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Ò´Ù¸ï¿½ Main Camera Ã£ï¿½ï¿½
         if (playerCamera == null)
         {
             playerCamera = Camera.main;
         }
 
-        // ¸¶¿ì½º Ä¿¼­ Àá±×±â (°ÔÀÓ Áß¿¡´Â Ä¿¼­°¡ º¸ÀÌÁö ¾ÊÀ½)
+        // ï¿½ï¿½ï¿½ì½º Ä¿ï¿½ï¿½ ï¿½ï¿½×±ï¿½ (ï¿½ï¿½ï¿½ï¿½ ï¿½ß¿ï¿½ï¿½ï¿½ Ä¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -35,24 +35,24 @@ public class CameraMove : MonoBehaviour
         HandleMouseLook();
         HandleMovement();
 
-        // ESC Å°·Î ¸¶¿ì½º Ä¿¼­ ÇØÁ¦
+        // ESC Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º Ä¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            //Cursor.visible = true;
         }
     }
 
     void HandleMouseLook()
     {
-        // ¸¶¿ì½º ÀÔ·Â ¹Þ±â
+        // ï¿½ï¿½ï¿½ì½º ï¿½Ô·ï¿½ ï¿½Þ±ï¿½
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
-        // ¼öÆò È¸Àü (YÃà) - ÇÃ·¹ÀÌ¾î ¿ÀºêÁ§Æ® È¸Àü
+        // ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ (Yï¿½ï¿½) - ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® È¸ï¿½ï¿½
         transform.Rotate(Vector3.up * mouseX);
 
-        // ¼öÁ÷ È¸Àü (XÃà) - Ä«¸Þ¶ó¸¸ È¸Àü
+        // ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ (Xï¿½ï¿½) - Ä«ï¿½Þ¶ï¿½ È¸ï¿½ï¿½
         verticalRotation -= mouseY;
         verticalRotation = Mathf.Clamp(verticalRotation, -maxLookAngle, maxLookAngle);
         playerCamera.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
@@ -60,17 +60,17 @@ public class CameraMove : MonoBehaviour
 
     void HandleMovement()
     {
-        // WASD ÀÔ·Â ¹Þ±â
+        // WASD ï¿½Ô·ï¿½ ï¿½Þ±ï¿½
         float horizontal = Input.GetAxis("Horizontal"); // A, D Å°
         float vertical = Input.GetAxis("Vertical");     // W, S Å°
 
-        // ÀÌµ¿ ¹æÇâ °è»ê (ÇÃ·¹ÀÌ¾î°¡ ¹Ù¶óº¸´Â ¹æÇâ ±âÁØ)
+        // ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ (ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½Ù¶óº¸´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
         Vector3 direction = transform.right * horizontal + transform.forward * vertical;
 
-        // ÀÌµ¿ º¤ÅÍ °è»ê
+        // ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         Vector3 move = direction * moveSpeed * Time.deltaTime;
 
-        // CharacterController·Î ÀÌµ¿
+        // CharacterControllerï¿½ï¿½ ï¿½Ìµï¿½
         characterController.Move(move);
     }
 }
