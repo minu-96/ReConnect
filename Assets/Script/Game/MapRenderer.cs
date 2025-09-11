@@ -42,10 +42,21 @@ namespace GrowGame.Game
             for (int i = 0; i < Mathf.Min(visuals.Length, choiceLevels.Length); i++)
             {
                 var v = visuals[i];
+                
                 if (v == null || v.target == null || v.levelTextures == null || v.levelTextures.Length == 0)
                     continue;
 
                 int lvl = Mathf.Clamp(choiceLevels[i], 0, v.levelTextures.Length - 1);
+
+                if (lvl >= 1)
+                {
+                    Animator anim = v.target.GetComponent<Animator>();
+                    if (anim != null)
+                    {
+                        anim.SetTrigger("Drop");
+                    }
+                }
+                
                 var tex = v.levelTextures[lvl];
 
                 v.target.texture = tex;

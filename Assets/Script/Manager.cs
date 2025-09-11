@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneChange : MonoBehaviour
+public class Manager : MonoBehaviour
 {
     public void SceneChange0(string Scene)
     {
@@ -16,5 +16,15 @@ public class SceneChange : MonoBehaviour
         {
             SceneManager.LoadScene("InGame");
         }
+    }
+
+    public void HideAsset(GameObject obj)
+    {
+        obj.SetActive(false);
+    }
+
+    public void ShowAsset(GameObject obj)
+    {
+        obj.SetActive(true);
     }
 }
