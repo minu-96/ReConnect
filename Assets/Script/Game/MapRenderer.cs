@@ -4,21 +4,21 @@ using UnityEngine.UI;
 namespace GrowGame.Game
 {
     /// <summary>
-    /// °¢ ¼±ÅÃÁö(i)ÀÇ ½Ã°¢È­ ¼³Á¤:
-    /// - target: ÇØ´ç ¼±ÅÃÁöÀÇ °á°ú¹°ÀÌ Ç¥½ÃµÉ RawImage
-    /// - levelTextures: [0..max] ·¹º§º° ÅØ½ºÃ³
-    ///   * 0¹ø,4¹ø ¼±ÅÃÁö´Â 0~3±îÁö(±æÀÌ=4)
-    ///   * ³ª¸ÓÁö´Â 0~5±îÁö(±æÀÌ=6) ±ÇÀå
+    /// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(i)ï¿½ï¿½ ï¿½Ã°ï¿½È­ ï¿½ï¿½ï¿½ï¿½:
+    /// - target: ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½Ãµï¿½ RawImage
+    /// - levelTextures: [0..max] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Ã³
+    ///   * 0ï¿½ï¿½,4ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0~3ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½=4)
+    ///   * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0~5ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½=6) ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     [System.Serializable]
     public class ChoiceVisual
     {
         public RawImage target;
-        public Texture[] levelTextures = new Texture[4]; // ±âº» 4Ä­(ÇÊ¿ä ½Ã ¿¡µðÅÍ¿¡¼­ ´Ã¸®±â)
+        public Texture[] levelTextures = new Texture[4]; // ï¿½âº» 4Ä­(ï¿½Ê¿ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½Ã¸ï¿½ï¿½ï¿½)
     }
 
     /// <summary>
-    /// choiceLevels ¹è¿­À» ¹Þ¾Æ ¸Ê(Äµ¹ö½º RawImageµé)À» °»½Å
+    /// choiceLevels ï¿½è¿­ï¿½ï¿½ ï¿½Þ¾ï¿½ ï¿½ï¿½(Äµï¿½ï¿½ï¿½ï¿½ RawImageï¿½ï¿½)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     /// </summary>
     public class MapRenderer : MonoBehaviour
     {
@@ -33,7 +33,7 @@ namespace GrowGame.Game
         }
 
         /// <summary>
-        /// °¢ ¼±ÅÃÁöÀÇ ·¹º§¿¡ ¸Â°Ô RawImage.texture ±³Ã¼
+        /// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Â°ï¿½ RawImage.texture ï¿½ï¿½Ã¼
         /// </summary>
         public void UpdateMap(int[] choiceLevels)
         {
@@ -56,11 +56,20 @@ namespace GrowGame.Game
                         anim.SetTrigger("Drop");
                     }
                 }
-                
+
+                if (lvl >= 1)
+                {
+                    Animator anim = v.target.GetComponent<Animator>();
+                    if (anim != null)
+                    {
+                        anim.SetTrigger("upgrade");
+                    }
+                }
+
                 var tex = v.levelTextures[lvl];
 
                 v.target.texture = tex;
-                v.target.enabled = (tex != null); // ÅØ½ºÃ³°¡ ¾øÀ¸¸é ºñÈ°¼ºÈ­(Åõ¸í)
+                v.target.enabled = (tex != null); // ï¿½Ø½ï¿½Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È°ï¿½ï¿½È­(ï¿½ï¿½ï¿½ï¿½)
             }
         }
     }

@@ -1,14 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
 using GrowGame.Rules;
+using UnityEngine.SceneManagement;
 
 namespace GrowGame.Game
 {
     /// <summary>
-    /// - ¶ó¿îµå/¹öÆ°/·¹º§ »óÅÂ¸¦ °ü¸®
-    /// - ¹öÆ° Å¬¸¯ ½Ã: ÇØ´ç ¼±ÅÃÁö +1 ¡æ ±ÔÄ¢ Àû¿ë ¡æ ¸Ê °»½Å
-    /// - ÇÑ ¶ó¿îµå ³» µ¿ÀÏ ¼±ÅÃÁö´Â 1È¸¸¸ Å¬¸¯ °¡´É
-    /// - ÃÑ 2¶ó¿îµå ¡¿ 8¼±ÅÃ = 16Å¬¸¯
+    /// - ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½Æ°/ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½ ï¿½ï¿½ï¿½ï¿½
+    /// - ï¿½ï¿½Æ° Å¬ï¿½ï¿½ ï¿½ï¿½: ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ +1 ï¿½ï¿½ ï¿½ï¿½Ä¢ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    /// - ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1È¸ï¿½ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    /// - ï¿½ï¿½ 2ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 8ï¿½ï¿½ï¿½ï¿½ = 16Å¬ï¿½ï¿½
     /// </summary>
     public class GameStateManager : MonoBehaviour
     {
@@ -18,11 +19,11 @@ namespace GrowGame.Game
         public Button[] choiceButtons = new Button[8];
 
         [Header("Max Levels per Choice (0~7)")]
-        // ¿ä±¸»çÇ×: [3,5,5,5,3,5,5,5]
+        // ï¿½ä±¸ï¿½ï¿½ï¿½ï¿½: [3,5,5,5,3,5,5,5]
         public int[] maxLevels = new int[8] { 3, 5, 5, 5, 3, 5, 5, 5 };
 
         [Header("State (read-only in Inspector)")]
-        public int[] choiceLevels = new int[8];  // ÇöÀç ·¹º§(0ºÎÅÍ ½ÃÀÛ)
+        public int[] choiceLevels = new int[8];  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(0ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
         public bool[] chosenThisRound = new bool[8];
         public int currentRound = 1;
         public int totalRounds = 2;
@@ -35,46 +36,55 @@ namespace GrowGame.Game
 
         void Start()
         {
-            // CSV ±ÔÄ¢ ·Îµå
+            // CSV ï¿½ï¿½Ä¢ ï¿½Îµï¿½
             RuleEngine.Init("rules");
 
-            // ¹öÆ° ÃÊ±â »óÅÂ(¶ó¿îµå ½ÃÀÛ ½Ã ¹Ì¼±ÅÃ¸¸ È°¼º)
+            // ï¿½ï¿½Æ° ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì¼ï¿½ï¿½Ã¸ï¿½ È°ï¿½ï¿½)
             RefreshButtons();
 
-            // ÃÊ±â ¸Ê ¹Ý¿µ
+            // ï¿½Ê±ï¿½ ï¿½ï¿½ ï¿½Ý¿ï¿½
             if (MapRenderer.Instance != null)
                 MapRenderer.Instance.UpdateMap(choiceLevels);
         }
 
+        private void Update()
+        {
+            if(currentRound == 3)
+            {
+                Time.timeScale = 1f;
+                SceneManager.LoadScene("Ending0");
+            }
+        }
+
         /// <summary>
-        /// UI ¹öÆ° OnClick()¿¡¼­ index(0~7)¸¦ ³Ñ°Ü È£Ãâ
+        /// UI ï¿½ï¿½Æ° OnClick()ï¿½ï¿½ï¿½ï¿½ index(0~7)ï¿½ï¿½ ï¿½Ñ°ï¿½ È£ï¿½ï¿½
         /// </summary>
         public void OnPressChoice(int index)
         {
-            if (currentRound > totalRounds) { Debug.Log("°ÔÀÓ Á¾·á"); return; }
+            if (currentRound > totalRounds) { Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½"); return; }
             if (index < 0 || index >= 8) return;
 
-            // ÀÌ¹ø ¶ó¿îµå¿¡¼­ ÀÌ¹Ì ´­·¶´Ù¸é ¹«½Ã
+            // ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½å¿¡ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½
             if (chosenThisRound[index]) return;
 
-            // 1) ÇØ´ç ¼±ÅÃÁö ·¹º§ +1 (°³º° ÃÖ´ëÄ¡·Î Å¬·¥ÇÁ)
+            // 1) ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ +1 (ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½Ä¡ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½)
             int cap = (index >= 0 && index < maxLevels.Length) ? maxLevels[index] : 99;
             choiceLevels[index] = Mathf.Min(choiceLevels[index] + 1, cap);
 
-            // 2) ±ÔÄ¢ Àû¿ë(¿¬¼â ¹Ý¿µÀÌ ¸ØÃâ ¶§±îÁö)
+            // 2) ï¿½ï¿½Ä¢ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ ï¿½Ý¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
             RuleEngine.ApplyUntilStable(choiceLevels, maxLevels);
 
-            // 3) ¸Ê °»½Å
+            // 3) ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             if (MapRenderer.Instance != null)
                 MapRenderer.Instance.UpdateMap(choiceLevels);
 
-            // 4) ¶ó¿îµå ÁøÇà »óÅÂ °»½Å
+            // 4) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             chosenThisRound[index] = true;
             turnsThisRound++;
 
             RefreshButtons();
 
-            // 5) ¶ó¿îµå Á¾·á Ã¼Å©(8¹ø Å¬¸¯)
+            // 5) ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©(8ï¿½ï¿½ Å¬ï¿½ï¿½)
             if (turnsThisRound >= 8)
             {
                 currentRound++;
@@ -82,23 +92,23 @@ namespace GrowGame.Game
 
                 if (currentRound <= totalRounds)
                 {
-                    // ´ÙÀ½ ¶ó¿îµå ½ÃÀÛ: ¼±ÅÃ °¡´É »óÅÂ ÃÊ±âÈ­
+                    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
                     for (int i = 0; i < chosenThisRound.Length; i++)
                         chosenThisRound[i] = false;
 
                     RefreshButtons();
-                    Debug.Log($"¶ó¿îµå {currentRound} ½ÃÀÛ");
+                    Debug.Log($"ï¿½ï¿½ï¿½ï¿½ {currentRound} ï¿½ï¿½ï¿½ï¿½");
                 }
                 else
                 {
-                    Debug.Log("¸ðµç ¶ó¿îµå Á¾·á");
-                    // TODO: ¿£µù/Á¡¼ö/ÀúÀå µî
+                    Debug.Log("ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+                    // TODO: ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
                 }
             }
         }
 
         /// <summary>
-        /// ÀÌ¹ø ¶ó¿îµå¿¡¼­ ¾ÆÁ÷ ¼±ÅÃÇÏÁö ¾ÊÀº ¹öÆ°¸¸ È°¼ºÈ­
+        /// ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½å¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ È°ï¿½ï¿½È­
         /// </summary>
         void RefreshButtons()
         {
