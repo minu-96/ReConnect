@@ -29,6 +29,9 @@ namespace GrowGame.Game
         public int totalRounds = 2;
         public int turnsThisRound = 0; // 0..8
 
+        public Text text;
+        public Text text1;
+
         void Awake()
         {
             Instance = this;
@@ -54,6 +57,8 @@ namespace GrowGame.Game
                 Time.timeScale = 1f;
                 SceneManager.LoadScene("Ending0");
             }
+            
+            text.text = currentRound.ToString();
         }
 
         /// <summary>
@@ -90,6 +95,9 @@ namespace GrowGame.Game
                 currentRound++;
                 turnsThisRound = 0;
 
+                GameResultData.finalLevels = (int[])choiceLevels.Clone();
+                GameResultData.maxLevels = (int[])maxLevels.Clone();
+
                 if (currentRound <= totalRounds)
                 {
                     // ���� ���� ����: ���� ���� ���� �ʱ�ȭ
@@ -104,7 +112,10 @@ namespace GrowGame.Game
                     Debug.Log("��� ���� ����");
                     // TODO: ����/����/���� ��
                 }
+                
+
             }
+            
         }
 
         /// <summary>
